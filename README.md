@@ -47,18 +47,21 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://github.com/PajamaCat/NYTimesSearch/blob/master/NYTimeSearch.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
-
-Describe any challenges encountered while building the app.
+I used Jackson to parse JSON into Parcelables and generate model using Yelp's Parcelgen. It's indeed more reliable than GSON created from the online parser. The app would crash on opening URL after a few rotations.
 
 ## Open-source libraries used
 
-- [Android Async HTTP](https://github.com/loopj/android-async-http) - Simple asynchronous HTTP requests with JSON parsing
-- [Picasso](http://square.github.io/picasso/) - Image loading and caching library for Android
+- [Okhttp](http://square.github.io/okhttp/) - An easy-to-use HTTP client
+- [Glide](https://github.com/bumptech/glide/) - Image loading and caching library for Android
+- [Icepick](https://github.com/frankiesardo/icepick/) - An Android library that eliminates the boilerplate of saving and restoring instance state.
+- [Butterknife](http://jakewharton.github.io/butterknife/) - Field and method binding for Android views
+- [Retrofit](https://square.github.io/retrofit/) - An Android network library
+- [RxJava](https://github.com/ReactiveX/RxJava/) - a library for composing asynchronous and event-based programs by using observable sequences
 
 ## License
 
