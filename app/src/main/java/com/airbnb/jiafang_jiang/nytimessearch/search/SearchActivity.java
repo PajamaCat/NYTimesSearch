@@ -40,7 +40,6 @@ public class SearchActivity extends AppCompatActivity {
     private static final String url = "https://api.nytimes.com/";
     private static final String apiKey = "3f3cb4637f05480187c9e01e8aed2c31";
 
-    @State ArrayList<Article> articles = Lists.newArrayList();
     private ArticleViewAdapter adapter;
     private NYTimeSearchService searchService;
     private OkHttpClient client;
@@ -49,6 +48,7 @@ public class SearchActivity extends AppCompatActivity {
     private HandlerThread handlerThread;
     private Handler handler;
 
+    @State ArrayList<Article> articles = Lists.newArrayList();
     @State String prevSearchQuery;
     @State String prevFilter;
     @State String prevBeginDate;
@@ -63,7 +63,7 @@ public class SearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Icepick.restoreInstanceState(this, savedInstanceState);
 
-        if (articles.isEmpty()) {
+//        if (savedInstanceState == null) {
             setContentView(R.layout.activity_search);
             ButterKnife.bind(this);
 
@@ -71,7 +71,7 @@ public class SearchActivity extends AppCompatActivity {
             setupArticleGrid();
 
             page = 0;
-        }
+//        }
         client = new OkHttpClient();
         retrofit = new Retrofit.Builder()
                 .client(client)
@@ -103,6 +103,12 @@ public class SearchActivity extends AppCompatActivity {
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         Icepick.restoreInstanceState(this, savedInstanceState);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Icepick.saveInstanceState(this, outState);
     }
 
     @Override
@@ -172,7 +178,8 @@ public class SearchActivity extends AppCompatActivity {
         handler.postDelayed(() -> sendRequest(prevSearchQuery, true), 350);
     }
 
-    public void openArticleInChromeTab(Article article) {
+    public void openArticleInChromeTab(int pos) {
+        Article article = articles.get(pos);
         String url = article.getWebUrl();
         CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
         builder.addDefaultShareMenuItem();

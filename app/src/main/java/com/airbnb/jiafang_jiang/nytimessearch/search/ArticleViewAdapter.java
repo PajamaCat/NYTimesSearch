@@ -70,7 +70,7 @@ public class ArticleViewAdapter extends RecyclerView.Adapter<ArticleViewAdapter.
         public void onClick(View v) {
             int position = getAdapterPosition();
             if (position != RecyclerView.NO_POSITION) {
-                ((SearchActivity) context).openArticleInChromeTab(articles.get(position));
+                ((SearchActivity) context).openArticleInChromeTab(position);
             }
         }
     }
