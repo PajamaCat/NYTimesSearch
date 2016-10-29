@@ -1,0 +1,31 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.airbnb.jiafang_jiang.nytimessearch.search.SearchActivity">
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="never" />
+
+    <item android:id="@+id/filter_search"
+        android:orderInCategory="2"
+        android:icon="@drawable/ic_filter"
+        android:title="@string/btn_filter_text"
+        app:showAsAction="ifRoom|collapseActionView" />
+
+    <item android:id="@+id/article_search"
+        android:orderInCategory="5"
+        android:title="@string/btn_text_search"
+        android:icon="@drawable/ic_search"
+        app:showAsAction="ifRoom|collapseActionView"
+        app:actionViewClass="android.support.v7.widget.SearchView" />
+
+    <item
+        android:id="@+id/menu_item_share"
+        app:showAsAction="ifRoom"
+        android:orderInCategory="6"
+        android:title="@string/menu_share"
+        app:actionProviderClass="android.support.v7.widget.ShareActionProvider" />
+
+</menu>
